@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}NOWHERE STORE{% endblock %}
+
+{% block navbar %}
+    <nav>
+        <a href="{% url 'MAIN' %}">Home</a>
+        <a href="{% url 'Seller' %}">Seller</a>
+        <a href="{% url 'product' %}">Product</a>
+        <a href="{% url 'brand' %}">Brand</a>
+        <a href="{% url 'order' %}" id="active">Order</a>
+        <a href="{% url 'customer' %}">Customer</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Order Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Product</th>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Ordered Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your table rows with order information here -->
+                <tr>
+                    <td>Kyle </td>
+                    <td>Shirt</td>
+                    <td>Assassin</td>
+                    <td>₱ 599.00</td>
+                    <td>2024-08-03</td>
+                </tr>
+                <tr>
+                    <td>Laurence </td>
+                    <td>Cellphone</td>
+                    <td>Apple</td>
+                    <td>₱ 56,000.00</td>
+                    <td>2024-09-01</td>
+                </tr>
+                <tr>
+                    <td>Pael </td>
+                    <td>Television</td>
+                    <td>Samsung</td>
+                    <td>₱ 16,000.00</td>
+                    <td>2024-02-09</td>
+                </tr>
+                <tr>
+                    <td>Aprille </td>
+                    <td>Cellphone</td>
+                    <td>Tecno</td>
+                    <td>₱ 9,999.00</td>
+                    <td>2024-04-04</td>
+                </tr>
+                <tr>
+                    <td>Kaila </td>
+                    <td>Book</td>
+                    <td>Pearson</td>
+                    <td>₱ 3,000.00</td>
+                    <td>2024-05-11</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

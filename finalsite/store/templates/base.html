@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto Slab" rel="stylesheet">
+    <title>{% block title %} NOWHERE STORE {% endblock %}</title>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        {% block navbar %}
+        <!-- Your Navbar Content Goes Here -->
+        {% endblock %}
+    </header>
+
+    <!-- CONTENT -->
+    <main>
+        {% block content %}
+        <!-- Your Main Content Goes Here -->
+        {% endblock %}
+    </main>
+
+    <!-- INCLUDE FOOTER -->
+    {% include 'includes/footer.html' %}
+</body>
+</html>

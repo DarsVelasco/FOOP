@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}NOWHERE STORE{% endblock %}
+
+{% block navbar %}
+    <nav>
+        <a href="{% url 'MAIN' %}">Home</a>
+        <a href="{% url 'Seller' %}">Seller</a>
+        <a href="{% url 'product' %}" id="active">Product</a>
+        <a href="{% url 'brand' %}">Brand</a>
+        <a href="{% url 'order' %}">Order</a>
+        <a href="{% url 'customer' %}">Customer</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Product Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Type</th>
+                    <th>Name of Seller</th>
+                    <th>Email</th>
+                    <th>Date Posted</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your table rows with product information here -->
+                <tr>
+                    <td>Cellphone</td>
+                    <td>Ronald Jason </td>
+                    <td>RJCapuno@gmail.com</td>
+                    <td>2023-01-04</td>
+                </tr>
+                <tr>
+                    <td>Shirt</td>
+                    <td>Roger </td>
+                    <td>RogerDken@gmail.com</td>
+                    <td>2023-05-02</td>
+                </tr>
+                <tr>
+                    <td>Television</td>
+                    <td>Joshua</td>
+                    <td>Josh@gmail.com</td>
+                    <td>2023-06-02</td>
+                </tr>
+                <tr>
+                    <td>Book</td>
+                    <td>Katrina</td>
+                    <td>Katty@gmail.com</td>
+                    <td>2023-02-02</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}NOWHERE STORE{% endblock %}
+
+{% block navbar %}
+    <nav>
+        <a href="{% url 'MAIN' %}">Home</a>
+        <a href="{% url 'Seller' %}" id="active">Seller</a>
+        <a href="{% url 'product' %}">Product</a>
+        <a href="{% url 'brand' %}">Brand</a>
+        <a href="{% url 'order' %}">Order</a>
+        <a href="{% url 'customer' %}">Customer</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <!-- Add your content in each section as needed -->
+{% endblock %}

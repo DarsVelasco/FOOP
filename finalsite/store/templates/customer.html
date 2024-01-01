@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}NOWHERE STORE{% endblock %}
+
+{% block navbar %}
+    <nav>
+        <a href="{% url 'MAIN' %}">Home</a>
+        <a href="{% url 'Seller' %}">Seller</a>
+        <a href="{% url 'product' %}">Product</a>
+        <a href="{% url 'brand' %}">Brand</a>
+        <a href="{% url 'order' %}">Order</a>
+        <a href="{% url 'customer' %}" id="active">Customer</a>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Customer Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Cellphone Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Add your table rows with customer information here -->
+                <tr>
+                    <td>Kyle Engreso</td>
+                    <td>Sta.Monica</td>
+                    <td>kyleAdik@gmail.com</td>
+                    <td>09920070001</td>
+                </tr>
+                <tr>
+                    <td>Laurence Tabang</td>
+                    <td>San Manuel</td>
+                    <td>jamar@gmail.com</td>
+                    <td>09924446267</td>
+                </tr>
+                <tr>
+                    <td>Pael</td>
+                    <td>Bancao-Bancao</td>
+                    <td>PaelM@gmail.com</td>
+                    <td>09617308923</td>
+                </tr>
+                <tr>
+                    <td>Aprille</td>
+                    <td>Baltan St.</td>
+                    <td>Arie@gmail.com</td>
+                    <td>09724342207</td>
+                </tr>
+                <tr>
+                    <td>Kaila</td>
+                    <td>San Miguel</td>
+                    <td>kai@gmail.com</td>
+                    <td>09816628891</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

@@ -1,7 +1,6 @@
-
 {% extends 'base.html' %}
 
-{% block title %}NOWHERE STORE{% endblock %}
+{% block title %}NOWHERE STORE | Orders{% endblock %}
 
 {% block navbar %}
 <nav>
@@ -15,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{% url 'order-add' %}" class="btn btn-outline-primary">Add New Order</a><br>
     <section>
         <h2>Order Information</h2>
         <table>
@@ -25,6 +25,7 @@
                     <th>Brand</th>
                     <th>Price</th>
                     <th>Ordered Date</th>
+                    <th>Actions</th> <!-- Add this column for actions -->
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,11 @@
                         <td>{{ order.brand_types }}</td>
                         <td>₱ {{ order.price }}</td>
                         <td>{{ order.order_date }}</td>
+                        <td>
+                            <!-- Add links for edit and delete if needed -->
+                            <a href="{% url 'order-edit' order.id %}" class="btn btn-outline-secondary">Edit</a>
+                            <a href="{% url 'order-del' order.id %}" class="btn btn-outline-danger">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
@@ -43,4 +49,3 @@
         {% include 'includes/pagination.html' %}
     </section>
 {% endblock %}
-

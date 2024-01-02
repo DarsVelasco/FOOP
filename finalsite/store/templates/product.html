@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+<a href="{% url 'product-add' %}" class="btn btn-outline-primary">Add New Product</a><br>
     <section>
         <h2>Product Information</h2>
         <table>
@@ -23,6 +24,7 @@
                     <th>Name of Seller</th>
                     <th>Email</th>
                     <th>Date Posted</th>
+                    <th>Actions</th>  <!-- Add this column for actions -->
                 </tr>
             </thead>
             <tbody>
@@ -32,6 +34,11 @@
                         <td>{{ product.name_of_seller }}</td>
                         <td>{{ product.email }}</td>
                         <td>{{ product.date_post }}</td>
+                        <td>
+                            <!-- Add links for edit and delete if needed -->
+                            <a href="{% url 'product-edit' product.id %}" class="btn btn-outline-secondary">Edit</a>
+                            <a href="{% url 'product-del' product.id %}" class="btn btn-outline-danger">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

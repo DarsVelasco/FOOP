@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}NOWHERE STORE{% endblock %}
+{% block title %}NOWHERE STORE | Customers{% endblock %}
 
 {% block navbar %}
     <nav>
@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+    <a href="{% url 'customer-add' %}" class="btn btn-outline-primary">Add New Customer</a><br>
     <section>
         <h2>Customer Information</h2>
         <table>
@@ -23,6 +24,7 @@
                     <th>Address</th>
                     <th>Email</th>
                     <th>Cellphone Number</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,11 +34,15 @@
                         <td>{{ customer.address }}</td>
                         <td>{{ customer.email }}</td>
                         <td>{{ customer.cellphone_number }}</td>
+                        <td>
+                            <a href="{% url 'customer-edit' customer.id %}" class="btn btn-outline-secondary">Edit</a>
+                            <a href="{% url 'customer-del' customer.id %}" class="btn btn-outline-danger">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
 
-        {% include 'includes/pagination.html' %} {# Include your pagination template #}
+        {% include 'includes/pagination.html' %}
     </section>
 {% endblock %}

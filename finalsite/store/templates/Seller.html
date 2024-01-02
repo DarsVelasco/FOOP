@@ -1,38 +1,39 @@
-<!-- Seller.html -->
-
 {% extends 'base.html' %}
 
-{% block title %}
-    NOWHERE STORE
-{% endblock %}
+{% block title %} NOWHERE STORE | Sellers {% endblock %}
 
 {% block navbar %}
-    <nav>
-        <a href="{% url 'MAIN' %}">Home</a>
-        <a href="{% url 'Seller' %}"id="active">Seller</a>
-        <a href="{% url 'product' %}">Product</a>
-        <a href="{% url 'brand' %}">Brand</a>
-        <a href="{% url 'order' %}">Order</a>
-        <a href="{% url 'customer' %}">Customer</a>
-    </nav>
+<nav>
+    <a href="{% url 'MAIN' %}">Home</a>
+    <a href="{% url 'Seller' %}">Seller</a>
+    <a href="{% url 'product' %}" id="active">Product</a>
+    <a href="{% url 'brand' %}">Brand</a>
+    <a href="{% url 'order' %}">Order</a>
+    <a href="{% url 'customer' %}">Customer</a>
+</nav>
 {% endblock %}
 
 {% block content %}
-    <section>
-        <!-- Existing content goes here -->
-
-        <!-- New Compact Cards Section -->
+    <a href="{% url 'Seller-add' %}" class="btn btn-outline-primary">Add New Seller</a><br>
+    <section class="Seller-cards-container">
+        <!-- Display Seller Cards -->
         {% for seller in Sellers %}
-            <div class="compact-card">
-                <img src="{{ seller.image_url }}" alt="{{ seller.name_of_seller }}">
+            <div class="compact-card seller-card-box">
+                <img src="{% if seller.image %}{{ seller.image.url }}{% else %}path/to/default-image.jpg{% endif %}" alt="{% if seller.image %}{{ seller.name_of_seller }} Image{% else %}Default Image{% endif %}">
                 <div class="compact-card-content">
                     <h2>{{ seller.name_of_seller }}</h2>
                     <p><strong>Sex:</strong> {{ seller.sex }}</p>
                     <p><strong>Birthdate:</strong> {{ seller.birthdate }}</p>
                     <p><strong>Description:</strong> {{ seller.description }}</p>
+                    <div class="seller-actions">
+                        <a href="{% url 'Seller-edit' seller.id %}" class="btn btn-outline-secondary">Edit</a>
+                        <a href="{% url 'Seller-del' seller.id %}" class="btn btn-outline-danger">Delete</a>
+                    </div>
                 </div>
             </div>
         {% endfor %}
-        {% include 'includes/pagination.html' %}
     </section>
+    <div>
+        {% include 'includes/pagination.html' %}
+    </div>
 {% endblock %}

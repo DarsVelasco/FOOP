@@ -1,20 +1,21 @@
 <!-- brand.html -->
 {% extends 'base.html' %}
 
-{% block title %}NOWHERE STORE{% endblock %}
+{% block title %}NOWHERE STORE | BRAND{% endblock %}
 
 {% block navbar %}
-    <nav>
-        <a href="{% url 'MAIN' %}">Home</a>
-        <a href="{% url 'Seller' %}">Seller</a>
-        <a href="{% url 'product' %}">Product</a>
-        <a href="{% url 'brand' %}" id="active">Brand</a>
-        <a href="{% url 'order' %}">Order</a>
-        <a href="{% url 'customer' %}">Customer</a>
-    </nav>
+<nav>
+    <a href="{% url 'MAIN' %}">Home</a>
+    <a href="{% url 'Seller' %}">Seller</a>
+    <a href="{% url 'product' %}" >Product</a>
+    <a href="{% url 'brand' %}"id="active">Brand</a>
+    <a href="{% url 'order' %}">Order</a>
+    <a href="{% url 'customer' %}">Customer</a>
+</nav>
 {% endblock %}
 
 {% block content %}
+    <a href="{% url 'brand-add' %}" class="btn btn-outline-primary">Add New Brand</a><br>
     <section>
         <h2>Brand Information</h2>
         <table>
@@ -24,6 +25,7 @@
                     <th>Names of Sellers</th>
                     <th>Email</th>
                     <th>Date Posted</th>
+                    <th>Actions</th> <!-- Add this column for actions -->
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +35,11 @@
                         <td>{{ brand.seller_names }}</td>
                         <td>{{ brand.email }}</td>
                         <td>{{ brand.date_post }}</td>
+                        <td>
+                            <!-- Add links for edit and delete if needed -->
+                            <a href="{% url 'brand-edit' brand.id %}" class="btn btn-outline-secondary">Edit</a>
+                            <a href="{% url 'brand-del' brand.id %}" class="btn btn-outline-danger">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

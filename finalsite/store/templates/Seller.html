@@ -1,4 +1,4 @@
-<!-- product.html -->
+<!-- Seller.html -->
 
 {% extends 'base.html' %}
 
@@ -9,8 +9,8 @@
 {% block navbar %}
     <nav>
         <a href="{% url 'MAIN' %}">Home</a>
-        <a href="{% url 'Seller' %}">Seller</a>
-        <a href="{% url 'product' %}" id="active">Product</a>
+        <a href="{% url 'Seller' %}"id="active">Seller</a>
+        <a href="{% url 'product' %}">Product</a>
         <a href="{% url 'brand' %}">Brand</a>
         <a href="{% url 'order' %}">Order</a>
         <a href="{% url 'customer' %}">Customer</a>
@@ -22,27 +22,17 @@
         <!-- Existing content goes here -->
 
         <!-- New Compact Cards Section -->
-        <div class="compact-card">
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/386.png" alt="Small Image 1">
-            <div class="compact-card-content">
-                <h2>Ronald</h2>
-                <p><strong>Sex:</strong> Male</p>
-                <p><strong>Birthdate:</strong> 2003-07-27</p>
-                <p><strong>Description:</strong> A good seller excels in understanding and meeting customer needs through effective communication and product expertise, building trust and satisfaction.</p>
+        {% for seller in Sellers %}
+            <div class="compact-card">
+                <img src="{{ seller.image_url }}" alt="{{ seller.name_of_seller }}">
+                <div class="compact-card-content">
+                    <h2>{{ seller.name_of_seller }}</h2>
+                    <p><strong>Sex:</strong> {{ seller.sex }}</p>
+                    <p><strong>Birthdate:</strong> {{ seller.birthdate }}</p>
+                    <p><strong>Description:</strong> {{ seller.description }}</p>
+                </div>
             </div>
-        </div>
-
-        <div class="compact-card">
-            <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/158.png" alt="Small Image 1">
-            <div class="compact-card-content">
-                <h2>Ronald</h2>
-                <p><strong>Sex:</strong> Male</p>
-                <p><strong>Birthdate:</strong> 2003-07-27</p>
-                <p><strong>Description:</strong> A good seller excels in understanding and meeting customer needs through effective communication and product expertise, building trust and satisfaction.</p>
-            </div>
-        </div>
-
-        <!-- Add more compact cards with small images as needed -->
-
+        {% endfor %}
+        {% include 'includes/pagination.html' %}
     </section>
 {% endblock %}

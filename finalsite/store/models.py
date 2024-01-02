@@ -39,9 +39,11 @@ class Brand(BaseModel):
     email = models.EmailField(max_length=100, null=True, blank=True)
     date_post = models.DateField(null=True, blank=True)
 
-    def __str__(self) -> str:
-        seller_names = [seller.name_of_seller for seller in self.name_of_seller.all()]
-        return f"{self.brand_type} ({', '.join(seller_names)})"
+    def __str__(self):
+        return self.brand_type
+    
+    def seller_names(self):
+        return ', '.join([seller.name_of_seller for seller in self.name_of_seller.all()])
 
 
 
@@ -51,6 +53,9 @@ class Order(BaseModel):
     brand = models.ManyToManyField(Brand, blank=True)
     price = models.DecimalField(max_digits=9999, decimal_places=2, null=True, blank=True)
     order_date = models.DateField(null=True, blank=True)
+    
+    def product_types(self):
+        return ', '.join([product.product_type for product in self.product.all()])
 
     def brand_types(self):
         brand_types = [brand.brand_type for brand in self.brand.all()]

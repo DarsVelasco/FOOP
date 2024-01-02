@@ -123,43 +123,58 @@ footer {
     width: 100%;
     font-size: 14px; /* Adjust the font size of the footer */
 }
-nav.pagination {
-    margin-top: 20px;
-    text-align: center;
-}
 
-.pagination ul {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-}
-
-.pagination li {
-    display: inline;
-    margin: 0 5px;
+.pagination {
+    display: flex;
+    justify-content: center;
     list-style: none;
+    padding: 0;
 }
 
-.pagination a, .pagination span {
-    color: #333;
-    padding: 8px 16px;
+.page-item {
+    margin-right: 5px;
+}
+
+.page-link {
+    display: block;
+    padding: 5px 10px;
     text-decoration: none;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    color: #007bff;
+    background-color: #fff;
 }
 
-.pagination .page-link:hover {
-    background-color: #ddd;
+.page-link:hover {
+    background-color: #f0f0f0;
 }
 
-.pagination .page-item.active span {
-    background-color: #333;
-    color: #fff;
-    border: 1px solid #333;
-}
-
-.pagination .page-item.disabled span, .pagination .page-link.disabled {
-    color: #aaa;
+/* Adjusted selectors to accommodate classes with spaces */
+.page-item.disabled {
+    /* Styles for disabled pagination item */
+    color: #6c757d;
     pointer-events: none;
     cursor: not-allowed;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+.page-item.active {
+    /* Styles for active pagination item */
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    z-index: 3;
+}
+
+/* Social Icons for footer */
+.social-icons a {
+    color: white;
+    text-decoration: none; 
+    /* Add other styling properties as needed */
+}
+
+/* Hover effect for the links */
+.social-icons a:hover {
+    color: #ffffff; /* Change color on hover if desired */
+    /* Add additional hover effects */
 }

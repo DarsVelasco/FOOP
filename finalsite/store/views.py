@@ -14,31 +14,31 @@ class MAINView(ListView):
     
 class SellerList(ListView):
     model = Seller
-    context_object_name = 'Seller'
+    context_object_name = 'Sellers'
     template_name = 'Seller.html'
     paginate_by = 7
     
 class ProductList(ListView):
     model = Product
-    context_object_name = 'product'
+    context_object_name = 'products'
     template_name = 'product.html'
     paginate_by = 7
     
 class BrandList(ListView):
     model = Brand
-    context_object_name = 'brand'
+    context_object_name = 'brands'
     template_name = 'brand.html'
     paginate_by = 7
 
 class OrderList(ListView):
     model = Order
-    context_object_name = 'order'
+    context_object_name = 'orders'
     template_name = 'order.html'
     paginate_by = 7
 
 class CustomerList(ListView):
     model = Customer
-    context_object_name = 'customer'
+    context_object_name = 'customers'
     template_name = 'customer.html'
     paginate_by = 7
     

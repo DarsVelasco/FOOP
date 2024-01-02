@@ -26,39 +26,17 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Add your table rows with customer information here -->
-                <tr>
-                    <td>Kyle Engreso</td>
-                    <td>Sta.Monica</td>
-                    <td>kyleAdik@gmail.com</td>
-                    <td>09920070001</td>
-                </tr>
-                <tr>
-                    <td>Laurence Tabang</td>
-                    <td>San Manuel</td>
-                    <td>jamar@gmail.com</td>
-                    <td>09924446267</td>
-                </tr>
-                <tr>
-                    <td>Pael</td>
-                    <td>Bancao-Bancao</td>
-                    <td>PaelM@gmail.com</td>
-                    <td>09617308923</td>
-                </tr>
-                <tr>
-                    <td>Aprille</td>
-                    <td>Baltan St.</td>
-                    <td>Arie@gmail.com</td>
-                    <td>09724342207</td>
-                </tr>
-                <tr>
-                    <td>Kaila</td>
-                    <td>San Miguel</td>
-                    <td>kai@gmail.com</td>
-                    <td>09816628891</td>
-                </tr>
-                <!-- Add more rows as needed -->
+                {% for customer in customers %}
+                    <tr>
+                        <td>{{ customer.name }}</td>
+                        <td>{{ customer.address }}</td>
+                        <td>{{ customer.email }}</td>
+                        <td>{{ customer.cellphone_number }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
+
+        {% include 'includes/pagination.html' %} {# Include your pagination template #}
     </section>
 {% endblock %}

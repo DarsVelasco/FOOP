@@ -1,3 +1,4 @@
+<!-- brand.html -->
 {% extends 'base.html' %}
 
 {% block title %}NOWHERE STORE{% endblock %}
@@ -20,45 +21,23 @@
             <thead>
                 <tr>
                     <th>Brand Type</th>
-                    <th>Name of Seller</th>
+                    <th>Names of Sellers</th>
                     <th>Email</th>
                     <th>Date Posted</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Add your table rows with brand information here -->
-                <tr>
-                    <td>Apple</td>
-                    <td>Ronald Jason Capuno</td>
-                    <td>RJCapuno@gmail.com</td>
-                    <td>2023-01-04</td>
-                </tr>
-                <tr>
-                    <td>Assassin</td>
-                    <td>Roger Domingo</td>
-                    <td>RogerDken@gmail.com</td>
-                    <td>2023-05-02</td>
-                </tr>
-                <tr>
-                    <td>Samsung</td>
-                    <td>Joshua</td>
-                    <td>Josh@gmail.com</td>
-                    <td>2023-06-02</td>
-                </tr>
-                <tr>
-                    <td>Tecno</td>
-                    <td>Ronald Jason</td>
-                    <td>RJCapuno@gmail.com</td>
-                    <td>2023-01-04</td>
-                </tr>
-                <tr>
-                    <td>Pearson</td>
-                    <td>Katrina</td>
-                    <td>Katty@gmail.com</td>
-                    <td>2023-02-02</td>
-                </tr>
-                <!-- Add more rows as needed -->
+                {% for brand in brands %}
+                    <tr>
+                        <td>{{ brand.brand_type }}</td>
+                        <td>{{ brand.seller_names }}</td>
+                        <td>{{ brand.email }}</td>
+                        <td>{{ brand.date_post }}</td>
+                    </tr>
+                {% endfor %}
             </tbody>
         </table>
+
+        {% include 'includes/pagination.html' %} {# Include your pagination template #}
     </section>
 {% endblock %}

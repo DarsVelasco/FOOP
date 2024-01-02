@@ -1,3 +1,5 @@
+<!-- index.html -->
+
 {% load static %}
 
 <!DOCTYPE html>
@@ -5,7 +7,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto Slab" rel="stylesheet">
     <title>{% block title %} NOWHERE STORE {% endblock %}</title>
@@ -13,8 +15,14 @@
 <body>
     <!-- NAVBAR -->
     <header>
+        {% block header %}
+            <div class="logo">
+                <h1>NOWHERE STORE</h1>
+            </div>
+        {% endblock %}
+
         {% block navbar %}
-        <!-- Your Navbar Content Goes Here -->
+            <!-- Your Navbar Content Goes Here -->
         {% endblock %}
     </header>
 

@@ -24,7 +24,7 @@ class SellerList(ListView):
     context_object_name = 'Sellers'
     template_name = 'Seller.html'
     paginate_by = 2
-    json_file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data', 'Seller_data.json')
+    json_file_path = 'data/Seller_data.json'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -33,13 +33,9 @@ class SellerList(ListView):
         return context
 
     def get_Seller_data(self):
-        try:
-            with open(self.json_file_path, 'r') as file:
-                data = json.load(file)
-                return data.get('Seller', [])
-        except FileNotFoundError:
-            # Handle the case where the file does not exist
-            return []
+        with open(self.json_file_path, 'r') as file:
+            data = json.load(file)
+            return data.get('Seller', [])
 
 class SellerCreateView(CreateView):
     model = Seller

@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Seller,Product,Brand,Order,Customer
+from store.models import Seller,Product,Brand,Order,Customer
 
 class SellerForm(ModelForm):
     birthdate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))

@@ -4,6 +4,9 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from store.models import Seller, Product, Brand,Order,Customer
 from store.forms import SellerForm, ProductForm,BrandForm,OrderForm,CustomerForm
 
+import os
+import json
+
 from django.urls import reverse_lazy
 # Create your views here.
 
@@ -21,6 +24,22 @@ class SellerList(ListView):
     context_object_name = 'Sellers'
     template_name = 'Seller.html'
     paginate_by = 2
+    json_file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'data', 'Seller_data.json')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        Seller_data = self.get_Seller_data()
+        context['Seller_data'] = Seller_data
+        return context
+
+    def get_Seller_data(self):
+        try:
+            with open(self.json_file_path, 'r') as file:
+                data = json.load(file)
+                return data.get('Seller', [])
+        except FileNotFoundError:
+            # Handle the case where the file does not exist
+            return []
 
 class SellerCreateView(CreateView):
     model = Seller
@@ -51,18 +70,18 @@ class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
     template_name = 'product_add.html'
-    success_url = reverse_lazy('product-list')
+    success_url = reverse_lazy('product-list')  # Corrected URL name
 
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'product_edit.html'
-    success_url = reverse_lazy('product-list')
+    success_url = reverse_lazy('product-list')  # Corrected URL name
 
 class ProductDeleteView(DeleteView):
     model = Product
     template_name = 'product_del.html'
-    success_url = reverse_lazy('product-list')  
+    success_url = reverse_lazy('product-list')
     
     
     
@@ -98,19 +117,19 @@ class OrderList(ListView):
     paginate_by = 2
     
 class OrderCreateView(CreateView):
-    model = Seller
-    form_class = SellerForm
+    model = Order
+    form_class = OrderForm
     template_name = 'order_add.html'
     success_url = reverse_lazy('order-list')
 
 class OrderUpdateView(UpdateView):
-    model = Seller
-    form_class = SellerForm
+    model = Order
+    form_class = OrderForm
     template_name = 'order_edit.html'
     success_url = reverse_lazy('order-list')
 
 class OrderDeleteView(DeleteView):
-    model = Seller
+    model = Order
     template_name = 'order_del.html'
     success_url = reverse_lazy('order-list')  
        
@@ -135,7 +154,7 @@ class CustomerUpdateView(UpdateView):
     success_url = reverse_lazy('customer-list')
 
 class CustomerDeleteView(DeleteView):
-    model = CustomerForm
+    model = Customer
     template_name = 'customer_del.html'
     success_url = reverse_lazy('customer-list')  
        

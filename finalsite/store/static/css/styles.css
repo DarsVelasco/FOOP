@@ -163,3 +163,45 @@ footer {
     border-color: #FFFFEC; /* Change to your desired active border color */
     z-index: 3;
 }
+
+.btn {
+    display: inline-block;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-outline-primary {
+    color: #fff; /* Updated text color to white */
+    background-color: #161A30; /* Updated background color to dark blue */
+    border: 1px solid #161A30;
+}
+
+.btn-outline-primary:hover {
+    background-color: #fff;
+    color: #161A30;
+}
+
+.btn-outline-secondary {
+    color: #fff; /* Updated text color to white */
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.btn-outline-danger {
+    color: #fff; /* Updated text color to white */
+    background-color: #FF4136;
+    border: 1px solid #FF4136;
+}
+
+.btn-outline-danger:hover {
+    background-color: #fff;
+    color: #FF4136;
+}

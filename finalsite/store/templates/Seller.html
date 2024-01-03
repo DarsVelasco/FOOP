@@ -6,7 +6,7 @@
 <nav>
     <a href="{% url 'MAIN' %}">Home</a>
     <a href="{% url 'Seller' %}">Seller</a>
-    <a href="{% url 'product' %}" id="active">Product</a>
+    <a href="{% url 'product' %}" class="active">Product</a>
     <a href="{% url 'brand' %}">Brand</a>
     <a href="{% url 'order' %}">Order</a>
     <a href="{% url 'customer' %}">Customer</a>
@@ -19,7 +19,7 @@
         <!-- Display Seller Cards -->
         {% for seller in Sellers %}
             <div class="compact-card seller-card-box">
-                <img style="width: 100px; height: 120px; margin-top: 5px;" src="{% if seller.image %}{{ seller.image.url }}{% else %}path/to/default-image.jpg{% endif %}" alt="{% if seller.image %}{{ seller.name_of_seller }} Image{% else %}Default Image{% endif %}">
+                <img src="{% if seller.image %}{{ seller.image.url }}{% else %}path/to/default-image.jpg{% endif %}" alt="{% if seller.image %}{{ seller.name_of_seller }} Image{% else %}Default Image{% endif %}">
                 <div class="compact-card-content">
                     <h2>{{ seller.name_of_seller }}</h2>
                     <p><strong>Sex:</strong> {{ seller.sex }}</p>
@@ -27,13 +27,13 @@
                     <p><strong>Description:</strong> {{ seller.description }}</p>
                     <div class="seller-actions">
                         <a href="{% url 'Seller-edit' seller.id %}" class="btn btn-outline-secondary">Edit</a>
-                        <a href="{% url 'Seller-del' seller.id %}" class="btn btn-outline-danger">Delete</a>
+                        <a href="{% url 'Seller-del' seller.id %}" class="btn btn-outline-danger" style="color: #fff !important;">Delete</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </section>
-    <div>
+    <div class="pagination-container">
         {% include 'includes/pagination.html' %}
     </div>
 {% endblock %}

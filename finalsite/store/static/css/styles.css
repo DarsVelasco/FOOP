@@ -205,3 +205,14 @@ footer {
     background-color: #fff;
     color: #FF4136;
 }
+
+.seller-actions a.btn.btn-outline-danger {
+    color: #fff;
+    background-color: #FF4136;
+    border: 1px solid #FF4136;
+}
+
+.seller-actions a.btn.btn-outline-danger:hover {
+    background-color: #fff;
+    color: #FF4136;
+}

@@ -24,18 +24,6 @@ class SellerList(ListView):
     context_object_name = 'Sellers'
     template_name = 'Seller.html'
     paginate_by = 2
-    json_file_path = 'data/Seller_data.json'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        Seller_data = self.get_Seller_data()
-        context['Seller_data'] = Seller_data
-        return context
-
-    def get_Seller_data(self):
-        with open(self.json_file_path, 'r') as file:
-            data = json.load(file)
-            return data.get('Seller', [])
 
 class SellerCreateView(CreateView):
     model = Seller

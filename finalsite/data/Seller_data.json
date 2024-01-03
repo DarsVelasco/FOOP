@@ -1,0 +1,20 @@
+{
+    "Seller": [
+        {
+            "name": "Ronald Jason",
+            "image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"
+        },
+        {
+            "name": "Roger",
+            "image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
+        },
+        {
+            "name": "Joshua",
+            "image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png"
+        },
+        {
+            "name": "Katrina",
+            "image_url": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png"
+        }
+    ]
+}

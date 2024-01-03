@@ -19,7 +19,7 @@
         <!-- Display Seller Cards -->
         {% for seller in Sellers %}
             <div class="compact-card seller-card-box">
-                <img src="{% if seller.image %}{{ seller.image.url }}{% else %}path/to/default-image.jpg{% endif %}" alt="{% if seller.image %}{{ seller.name_of_seller }} Image{% else %}Default Image{% endif %}">
+                <img style="width: 100px; height: 120px; margin-top: 5px;" src="{% if seller.image %}{{ seller.image.url }}{% else %}path/to/default-image.jpg{% endif %}" alt="{% if seller.image %}{{ seller.name_of_seller }} Image{% else %}Default Image{% endif %}">
                 <div class="compact-card-content">
                     <h2>{{ seller.name_of_seller }}</h2>
                     <p><strong>Sex:</strong> {{ seller.sex }}</p>

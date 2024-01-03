@@ -23,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ('product_type', 'name_of_seller', 'email', 'date_post', 'created_at', 'updated_at')
 
 class SellerAdmin(admin.ModelAdmin):
-    list_display = ('name_of_seller', 'sex', 'birthdate', 'description', 'created_at', 'updated_at')
+    list_display = ('name_of_seller', 'sex', 'birthdate', 'description', 'image', 'created_at', 'updated_at')
 
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ('name', 'address', 'email', 'cellphone_number', 'created_at', 'updated_at')

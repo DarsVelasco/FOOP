@@ -20,7 +20,7 @@ class Seller(BaseModel):
     sex = models.CharField(max_length=17, null=True, blank=True, choices=Sex)
     birthdate = models.DateField(null=True, blank=True)
     description = models.CharField(max_length=250, null=True, blank=True)
-    image = models.ImageField(upload_to='seller_images/', null=True, blank=True)
+    image = models.ImageField(upload_to='media/seller_images/', blank=True, null=True)
     
     def __str__(self) -> str:
         return self.name_of_seller
